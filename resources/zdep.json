@@ -1,0 +1,13 @@
+{
+  "name": "dep",
+  "group": "spark",
+  "properties": {},
+  "interpreterGroup": [
+    {
+       "class":"org.apache.zeppelin.spark.DepInterpreter",
+       "name": "dep",
+       "defaultInterpreter": true
+    }
+  ],
+  "dependencies": []
+}
