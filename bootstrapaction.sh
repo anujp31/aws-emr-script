@@ -45,3 +45,13 @@ else
     echo " zeppelin setup is only done on master node"
     exit 0;
 fi
+
+# Fix that ugly prompt
+cat <<EOF >> /home/hadoop/.bashrc
+function nonzero_return() {
+    local RETVAL=$?
+    [ $RETVAL -ne 0 ] && echo "${RETVAL}:"
+}
+
+export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[34m\]\H:\[\e[m\]\[\e[32m\]\w\[\e[m\] "
+EOF
