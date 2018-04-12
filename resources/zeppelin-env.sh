@@ -30,3 +30,5 @@ export SPARK_SUBMIT_OPTIONS="$SPARK_SUBMIT_OPTIONS --conf 'spark.executorEnv.PYT
 export ZEPPELIN_NOTEBOOK_S3_BUCKET=remine-datascience
 export ZEPPELIN_NOTEBOOK_S3_USER=emr
 export ZEPPELIN_NOTEBOOK_STORAGE=org.apache.zeppelin.notebook.repo.S3NotebookRepo
+
+export PYSPARK_PYTHON=/opt/anaconda/bin/python

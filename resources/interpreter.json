@@ -178,6 +178,34 @@
       "option": {
         "remote": true,
         "port": -1,
+        "perNote": "isolated",
+        "perUser": "shared",
+        "isExistingProcess": false,
+        "setPermission": false,
+        "isUserImpersonate": false
+      }
+    },
+      "status": "READY",
+      "interpreterGroup": [
+        {
+          "name": "sql",
+          "class": "org.apache.zeppelin.jdbc.JDBCInterpreter",
+          "defaultInterpreter": false,
+          "editor": {
+            "language": "sql",
+            "editOnDblClick": false
+          }
+        }
+      ],
+      "dependencies": [
+        {
+          "groupArtifactVersion": "org.postgresql:postgresql:42.2.2",
+          "local": false
+        }
+      ],
+      "option": {
+        "remote": true,
+        "port": -1,
         "perNote": "shared",
         "perUser": "shared",
         "isExistingProcess": false,
@@ -185,6 +213,53 @@
         "isUserImpersonate": false
       }
     },
+    "2DCBV9M3V": {
+      "id": "2DCBV9M3V",
+      "name": "hive",
+      "group": "jdbc",
+      "properties": {
+        "zeppelin.jdbc.concurrent.use": "true",
+        "default.password": "hive",
+        "default.user": "hive",
+        "zeppelin.jdbc.concurrent.max_connection": "10",
+        "default.driver": "org.apache.hive.jdbc.HiveDriver",
+        "default.url": "jdbc:hive2://localhost:10000",
+        "common.max_count": "1000"
+      },
+      "status": "READY",
+      "interpreterGroup": [
+        {
+          "name": "sql",
+          "class": "org.apache.zeppelin.jdbc.JDBCInterpreter",
+          "defaultInterpreter": false,
+          "editor": {
+            "language": "sql",
+            "editOnDblClick": false
+          }
+        }
+      ],
+      "dependencies": [
+        {
+          "groupArtifactVersion": "org.apache.hive:hive-jdbc:2.3.2",
+          "local": false
+        },
+        {
+          "groupArtifactVersion": "org.apache.hadoop:hadoop-common:2.8.3",
+          "local": false,
+          "exclusions": []
+        }
+      ],
+      "option": {
+        "remote": true,
+        "port": -1,
+        "perNote": "shared",
+        "perUser": "shared",
+        "isExistingProcess": false,
+        "setPermission": false,
+        "isUserImpersonate": false
+      }
+    }
+  },
   "interpreterBindings": {
     "2D8MSBU2T": [
       "2ANGGHHMQ",
@@ -192,6 +267,7 @@
       "2AM1YV5CU",
       "2AKK3QQXU",
       "2BRWU4WXC",
+      "2DCBV9M3V"
     ]
   },
   "interpreterRepositories": [

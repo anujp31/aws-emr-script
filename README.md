@@ -10,7 +10,6 @@ Push the folder setupZeppelin to your desired S3 location.
 
 - Set Zeppelin to use S3 backed notebooks with Spark on Amazon EMR
 - Set Anaconda as default python interpreter in Zeppelin
-- ~Setting up Shiro authentication in Zeppelin~
 
 ## Getting started
 
@@ -32,22 +31,18 @@ The first step is to set up an EMR cluster.
     2. We require Hadoop, Zeppelin, Ganglia, and Spark are selected.
     3. In the Add steps section, for Step type, choose Custom JAR, and select configure.
         1. Change name to "custom bootstrap action"
-        2. in `jar location` add `s3://region.elasticmapreduce/libs/script-runner/script-runner.jar`
-
-        **replace** `region` **with the region in which you've created your EMR instance**. For example if your region is eu-west-1 the jar location is in `s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar`. _The script runner allows you run a script at any time during the step process._
-        3. In `arguments` add `s3://remine-datascience/emr/bootstrapaction.sh`.
+        2. in `jar location` add `s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar`
+        **replace** `us-east-1` **with the region in which you've created your EMR instance**. _The script runner allows you run a script at any time during the step process._
+        3. In `arguments` add `s3://<s3-bucket>/emr/master-post-init.sh`.
 3. Choose Add, Next.
 4. On the Hardware Configuration page, select your VPC and the subnet where you want to launch the cluster, keep the default selection of one master and two core nodes of m4.xlarge, and choose Next.
 5. On the General Options page, give your cluster a name (e.g., Spark-Cluster) and choose Next.
-6. On the Security Options page, for EC2 key pair, select a key pair. Keep all other settings at the default values and choose Create cluster.
+6. In Additional Options section, add a bootstrap action by selecting "Custom action" and setting `s3://<s3-bucket>/emr/bootstrapaction.sh` for the script location
+7. On the Security Options page, for EC2 key pair, select a key pair. Keep all other settings at the default values and choose Create cluster.
 
 Your three-node cluster takes a few moments to start up. Your cluster is ready when the cluster status is Waiting.
 
 ## Discussion
-
-### ~Enabling Shiro~
-
-~Apache Shiro is a powerful and easy-to-use Java security framework that performs authentication, authorization, cryptography, and session management.~
 
 ### Services on EMR use upstart
 
