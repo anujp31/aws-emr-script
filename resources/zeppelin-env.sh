@@ -27,7 +27,7 @@ export CLASSPATH=":/usr/lib/hadoop-lzo/lib/*:/usr/lib/hadoop/hadoop-aws.jar:/usr
 
 export SPARK_SUBMIT_OPTIONS="$SPARK_SUBMIT_OPTIONS --conf 'spark.executorEnv.PYTHONPATH=/usr/lib/spark/python/lib/py4j-src.zip:/usr/lib/spark/python/:<CPS>{{PWD}}/pyspark.zip<CPS>{{PWD}}/py4j-src.zip' --conf spark.yarn.isPython=true"
 
-export ZEPPELIN_NOTEBOOK_S3_BUCKET=remine-datascience
+export ZEPPELIN_NOTEBOOK_S3_BUCKET=$S3_BUCKET
 export ZEPPELIN_NOTEBOOK_S3_USER=emr
 export ZEPPELIN_NOTEBOOK_STORAGE=org.apache.zeppelin.notebook.repo.S3NotebookRepo
 

@@ -33,6 +33,6 @@ sudo env "PATH=$PATH" conda install -y psycopg2
 # Keeping this here since its a useful snippet to determine if we're on master
 # # Run only master node
 # if grep isMaster /mnt/var/lib/info/instance.json | grep true; then
-#     aws s3 cp s3://remine-datascience/emr/bootstrap-master.sh .
+#     aws s3 cp s3://${S3_BUCKET}/emr/bootstrap-master.sh .
 #     bash bootstrap-master.sh
 # fi
